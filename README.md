@@ -1,12 +1,12 @@
 # info_ta
 Autonomie_1
 
-##collaborateur: JIN Lin & GAO Xinzhao & ZHAO Rui
+collaborateur: JIN Lin & GAO Xinzhao & ZHAO Rui
 
 
 
-##Le Principe du jeu
-##On dessin des points jaunes en formant une carré 6*6. Chaque point est connecté au moins deux autres points. Initialement, tous les lignes sont croisées ensemble. le joueur déplace le point afin que les lignes ne se croisent pas. Lorsque toutes les lignes ne sont pas entrelacées, le joueur réussit.
+Le Principe du jeu
+On dessin des points jaunes en formant une carré 6*6. Chaque point est connecté au moins deux autres points. Initialement, tous les lignes sont croisées ensemble. le joueur déplace le point afin que les lignes ne se croisent pas. Lorsque toutes les lignes ne sont pas entrelacées, le joueur réussit.
 
 
 
@@ -21,10 +21,10 @@ from kivy.uix.scatter import Scatter
 from kivy.properties import ListProperty
 import random
 
-## g_ballsize = 60
-## g_halfballsize = 30
-## g_balldistance = 120
-## g_initdistance = 100
+# g_ballsize = 60
+# g_halfballsize = 30
+# g_balldistance = 120
+# g_initdistance = 100
 
 g_ballsize = 30
 g_halfballsize = 15
@@ -33,7 +33,7 @@ g_initdistance = 0
 
 
 def crosslinecheck(line1, line2):
-##Pour déterminer si les lignes se croisent
+# Pour déterminer si les lignes se croisent
     ax = line1[0]
     ay = line1[1]
     bx = line1[2]
@@ -81,7 +81,7 @@ def crosslinecheck(line1, line2):
 
 
 class Ball(Label):
-##Dessiner une balle
+# Dessiner une balle
     def __init__(self, **kwargs):
         super(Ball, self).__init__(**kwargs)
         with self.canvas:
@@ -102,7 +102,7 @@ class Ball(Label):
 
 
 class MyScatter(Scatter):
-##Dessiner lignes entre balles
+# Dessiner lignes entre balles
     lineproperties = ListProperty([])
 
     def __init__(self, index=0, **kwargs):
@@ -233,7 +233,7 @@ class MainWidget(Widget):
     def rewriteColor(self):
         for k in self.linedict:
             if self.checkLineCross(k):
-                #imprimer ligne en rouge
+                # imprimer ligne en rouge
                 self.canvas.remove(self.linedict[k][2])
                 self.obj = InstructionGroup()
                 self.obj.add(Color(1, 0, 0))
@@ -241,7 +241,7 @@ class MainWidget(Widget):
                 self.linedict[k][2] = self.obj
                 self.canvas.add(self.linedict[k][2])
             else:
-                #imprimer ligne en vert
+                # imprimer ligne en vert
                 self.canvas.remove(self.linedict[k][2])
                 self.obj = InstructionGroup()
                 self.obj.add(Color(0, 1, 0))
